@@ -26,6 +26,7 @@
 *      printDelay: 333,           * variable print delay S. Vance
 *      header: null,              * prefix to html
 *      scale: null,               * scale the content to print (number)
+*      html: null                 * html to render (optional; this will be used instead of HTML in the element if it's passed)
 *  });
 *
 * Notes:
@@ -154,11 +155,12 @@
         removeInline: false,    // remove all inline styles
         printDelay: 333,        // variable print delay S. Vance
         header: null,           // prefix to html
-        scale: null             // scale print content
+        scale: null,            // scale print content (optional)
+        html: null              // html content to render (optional)
     };
     
     // $.selector container
     jQuery.fn.outer = function () {
-        return $($("<div></div>").html(this.clone())).html()
+        return (opt.html) ? opt.html : $($("<div></div>").html(this.clone())).html()
     }
 })(jQuery);

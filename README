@@ -1,7 +1,8 @@
 Jason Day
 printThis 1.3
 
-11/12/2013    added scale option so the print content can be zoomed
+11/12/2013    added 'scale' option so the print content can be zoomed
+              added 'html' option that will override the elements HTML if passed
 
 10/11/2013    added printDelay option. Sometimes 333 isn't enough
               added header option -- inserts html before selected content, for images ensure to use full path
