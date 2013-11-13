@@ -24,7 +24,8 @@
 *      pageTitle: "",             * add title to print page
 *      removeInline: false,       * remove all inline styles from print elements
 *      printDelay: 333,           * variable print delay S. Vance
-*      header: null               * prefix to html
+*      header: null,              * prefix to html
+*      scale: null,               * scale the content to print (number)
 *  });
 *
 * Notes:
@@ -91,6 +92,14 @@
             // print header
             if (opt.header) $doc.find("body").append(opt.header);
 
+            // scale content
+            if (opt.scale) $doc.find("body")
+                .css('transform', 'scale(' + opt.scale + ', ' + opt.scale + ')')
+                .css('-moz-transform', 'scale(' + opt.scale + ', ' + opt.scale + ')')
+                .css('-ms-transform', 'scale(' + opt.scale + ', ' + opt.scale + ')')
+                .css('-webkit-transform', 'scale(' + opt.scale + ', ' + opt.scale + ')')
+                .css('-o-transform', 'scale(' + opt.scale + ', ' + opt.scale + ')');
+
             // grab $.selector as container
             if (opt.printContainer) $doc.find("body").append($element.outer());
                 
@@ -144,7 +153,8 @@
         pageTitle: "",          // add title to print page
         removeInline: false,    // remove all inline styles
         printDelay: 333,        // variable print delay S. Vance
-        header: null            // prefix to html
+        header: null,           // prefix to html
+        scale: null             // scale print content
     };
     
     // $.selector container
